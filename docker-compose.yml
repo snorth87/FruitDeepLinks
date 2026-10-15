@@ -55,7 +55,7 @@ services:
       - AUTO_REFRESH_ENABLED=${AUTO_REFRESH_ENABLED:-true}
       - AUTO_REFRESH_TIME=${AUTO_REFRESH_TIME:-02:30}
     volumes:
-      - ./data:/app/data
+      - fruitdeeplinks-data:/app/data
       - ./out:/app/out
       - ./logs:/app/logs
       # Mount DVR path for CDVR detector (optional - only if using detector feature)
@@ -70,3 +70,7 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+volumes:
+  fruitdeeplinks-data:
+    external: true
+    name: fruitdeeplinks-data
